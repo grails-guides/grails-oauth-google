@@ -7,6 +7,11 @@ runningTheApp:
 oauth2:
   title: OAuth2 Authentication
   configureGoogleOAuth: Setup and Configure Google OAuth2
+appConfig:
+  title: Setting up your app
+  dependencies: Add Security Dependencies
+  security: Generate Basic Spring Security
+  oauthConfig: OAuth2 Configuration.
 #singleApp:
 #  title: Single Application - Internal MQ
 #  singleConfig: Configure our app
