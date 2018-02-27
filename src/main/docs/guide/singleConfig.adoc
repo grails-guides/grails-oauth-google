@@ -1,0 +1,30 @@
+To get started we need to tell the app how to talk to the RabbitMQ we previously configured. This is actually quite simple
+and very easy to do. First we need to add the dependency to support RabbitMQ ...
+
+[source,groovy]
+.build.gradle
+----
+include::{sourceDir}/build.gradle[indent=0, tag=mqDependency]
+----
+
+Once we have added the dependency we can go ahead and add the necessary config to connect to RabbitMQ.
+
+[source,yml]
+.grails-app/conf/application.yml
+----
+rabbitmq:
+    connections:
+      - name: main //<1>
+        host: localhost //<2>
+        username: guest //<3>
+        password: guest //<4>
+    queues:
+      - name: testqueue //<5>
+----
+<1> All connections require a name but you can name it whatever you want
+<2> Where RabbitMQ is located. In this case on our local system but this can also be a web url or ip address
+<3> Default username `guest`
+<4> Default password `guest`
+<5> Creation of a `testqueue`
+
+Now that we have all our configuration out of the way time to create a `consumer` (ie. a receiver / user) of our messages.

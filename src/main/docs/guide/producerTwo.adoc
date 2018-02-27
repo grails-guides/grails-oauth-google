@@ -1,0 +1,15 @@
+Returning to our original app we now need to create a second producer. Unlike last time where we used a controller,
+this time we will make use of an http://docs.grails.org/latest/guide/single.html#interceptors[interceptor]. This will
+allow us to capture when someone clicks on a book and views it. Create a new interceptor in the `grails-app/controllers/demo`
+called `BookShowInterceptor.groovy`.
+
+[source,groovy]
+.grails-app/controllers/demo/BookShowInterceptor.groovy
+----
+include::{sourceDir}/grails-app/controllers/demo/BookShowInterceptor.groovy[]
+----
+<1> Inject the rabbitMessagePublisher
+<2> Intercept when the book controller show method is called
+<3> `after` method executes after the action but prior to view rendering (ie. after you have clicked the book but before you see the description), returns true to continue processing to the view.
+<4> Model is available in the `after` method to retrieve data about the current object
+<5> Send specified message using a specific queue. When sending a message using send no return message is expected.

@@ -1,0 +1,27 @@
+gettingStarted:
+  title: Getting Started
+  requirements: What you will need
+  howto: How to complete the guide
+runningTheApp:
+  title: Running the Application
+oauth2:
+  title: OAuth2 Authentication
+  configureGoogleOAuth: Setup and Configure Google OAuth2
+#singleApp:
+#  title: Single Application - Internal MQ
+#  singleConfig: Configure our app
+#  consumerOne: Create a consumer - (Receiver of messages)
+#  producerOne: Create a producer - (Creator of messages)
+#  executeOne: See it in action!
+#multiApp:
+#  title: Multiple Applications - External MQ
+#  multiConfig: Configure our apps
+#  originalAppGrails: Adding to our app
+#  buildingAnalytics: Building our analytics app
+#  consumerTwo: Analytics consumer
+#  producerTwo: Book hit producer
+#  executeTwo: A symphony of messages
+nextSteps:
+  title: Next Steps
+helpWithGrails:
+  title: Do you need help with Grails?

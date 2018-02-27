@@ -1,0 +1,5 @@
+Now that we have seen how simple it is to send a message lets try for a more real world example, we will setup a
+different message queue to work across two different applications. In
+this case we have a list of books and we want to keep track of the number of times each book is viewed. In this case we
+have our main application that lists the books and their descriptions and a separate analytics app that keeps track of
+the number of times each one is viewed.

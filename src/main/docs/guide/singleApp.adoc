@@ -1,0 +1,4 @@
+Using message queues is definitely geared more toward allowing multiple different apps to communicate without having to
+know much about one another, but understanding how message queues work conceptually can be somewhat challenging so lets
+start with the most simplistic example and see how using a queue internally will work. We will go ahead and implement
+the example provided to us in the plugin https://budjb.github.io/grails-rabbitmq-native/3.x/latest/[documentation].

@@ -1,0 +1,1 @@
+To get Google OAuth2 up and running on your application will take a bit of work on the Google Developer Console.

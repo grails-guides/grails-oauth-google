@@ -1,0 +1,23 @@
+First we need to create our `BookPageView` object which will keep track of how many times a book has been viewed.
+
+[source,groovy]
+.grails-app/domain/demo/BookPageView.groovy
+----
+include::complete-analytics/grails-app/domain/demo/BookPageView.groovy[]
+----
+
+As before create default actions for our `BookPageView` leveraging data services.
+
+[source,groovy]
+.grails-app/services/demo/BookPageViewDataService.groovy
+----
+include::complete-analytics/grails-app/services/demo/BookPageViewDataService.groovy[]
+----
+
+Next we create our custom action that increment our book views.
+
+[source,groovy]
+.grails-app/services/demo/BookPageViewGormService.groovy
+----
+include::complete-analytics/grails-app/services/demo/BookPageViewGormService.groovy[]
+----
