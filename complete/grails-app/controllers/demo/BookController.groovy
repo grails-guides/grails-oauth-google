@@ -1,7 +1,9 @@
 package demo
 
+import grails.plugin.springsecurity.annotation.Secured
 import groovy.transform.CompileStatic
 
+@Secured('permitAll')
 @CompileStatic
 class BookController {
 

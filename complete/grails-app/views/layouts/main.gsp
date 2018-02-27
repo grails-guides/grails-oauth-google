@@ -35,6 +35,18 @@
             </div>
         </div>
     </div>
+<p>
+    <g:link controller="book" action="index">
+        <g:message code="book.all" default="All"/>
+    </g:link>
+    <span>|</span>
+    <g:link controller="bookFavourite" action="index">
+        <g:message code="book.favourite" default="Favourites"/>
+    </g:link>
+</p>
+<sec:ifNotLoggedIn>
+    <a href="/oauth/authenticate/google">Login with Google</a>
+</sec:ifNotLoggedIn>
 
     <g:layoutBody/>
 
