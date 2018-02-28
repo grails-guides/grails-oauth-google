@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/#">
-		    <asset:image src="grails.svg" alt="Grails Logo"/>
+		            <asset:image src="grails.svg" alt="Grails Logo"/>
                 </a>
             </div>
             <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
@@ -35,18 +35,27 @@
             </div>
         </div>
     </div>
-<p>
-    <g:link controller="book" action="index">
-        <g:message code="book.all" default="All"/>
-    </g:link>
-    <span>|</span>
-    <g:link controller="bookFavourite" action="index">
-        <g:message code="book.favourite" default="Favourites"/>
-    </g:link>
-</p>
-<sec:ifNotLoggedIn>
-    <a href="/oauth/authenticate/google">Login with Google</a>
-</sec:ifNotLoggedIn>
+
+    <div class="centered">
+        <g:link controller="book" action="index">
+            <g:message code="book.all" default="All"/>
+        </g:link>
+        <span>|</span>
+        <g:link controller="bookFavourite" action="index">
+            <g:message code="book.favourite" default="Favourites"/>
+        </g:link>
+        <span>|</span>
+        <sec:ifNotLoggedIn>
+            <a href="/oauth/authenticate/google">Login with Google</a>
+        </sec:ifNotLoggedIn>
+        <sec:ifLoggedIn>
+            <a href="/logout">Logout</a>
+        </sec:ifLoggedIn>
+    </div>
+
+    <g:if test="${flash.message}">
+        <div class="message" style="display: block">${flash.message}</div>
+    </g:if>
 
     <g:layoutBody/>
 

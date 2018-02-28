@@ -18,15 +18,15 @@ class BookFavouriteController {
     @Secured('permitAll')
     def index() {
         String username = loggedUsername()
-        List<Long> bookIds = bookFavouriteDataService.findBookFavouriteBookId(username)
-        List<BookImage> bookList = bookGormService.findAllByIds(bookIds)
+        List<Long> bookIds = bookFavouriteDataService.findBookFavouriteBookId(username) //<1>
+        List<BookImage> bookList = bookGormService.findAllByIds(bookIds) //<2>
         render view: '/book/index', model: [bookList: bookList]
     }
 
     @Secured('isAuthenticated()')
     def favourite(Long bookId) {
         String username = loggedUsername()
-        bookFavouriteDataService.save(bookId, username)
+        bookFavouriteDataService.save(bookId, username) //<3>
         redirect(action: 'index')
     }
 

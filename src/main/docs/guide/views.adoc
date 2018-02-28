@@ -1,0 +1,74 @@
+We are finally ready to connect everything up with a functional interface. First lets create an index page for our books
+so we can see a list of them located at `views/book`.
+
+[source,html]
+.grails-app/views/book/index.gsp
+----
+include::{sourceDir}/grails-app/views/book/index.gsp[]
+----
+
+Next we will create a `show.gsp` also in `views/books` so that when we select a book we can view its details.
+
+[source,html]
+.grails-app/views/book/show.gsp
+----
+<html>
+<head>
+    <title>${bookInstance?.title}</title>
+    <meta name="layout" content="main" />
+</head>
+<body>
+<div id="content" role="main">
+    <section class="row colset-2-its">
+        <g:if test="${bookInstance}">
+            <h1><a href="${bookInstance.href}">${bookInstance.title}</a></h1>
+            <sec:ifLoggedIn>  //<1>
+                <g:form controller="bookFavourite" action="favourite">
+                    <g:hiddenField name="bookId" value="${bookInstance.id}"/>
+                    <input type="submit" class="btn btn-default" value="${g.message(code: 'book.favourite', default: 'Favourite')}"/>
+                </g:form>
+            </sec:ifLoggedIn>
+            <p>${bookInstance.about}</p>
+            <h2><g:message code="book.author" args="[bookInstance.author]" default="By {0}"/></h2>
+            <asset:image src="${bookInstance.image}" width="200" />
+        </g:if>
+    </section>
+</div>
+</body>
+</html>
+----
+<1> Wrap our favourite button in a logged in check as we should only be able to favourite a book when we are logged in
+
+Lastly we tie it all together in our layout file by adding a simple menu that allows us to select either all our books,
+our favourite books, or login / logout. We add this between the navigation div and the `<g:layoutBody/>`.
+
+[source,html]
+.grails-app/views/layouts/main.gsp
+----
+<div class="centered"> //<1>
+    <g:link controller="book" action="index">
+        <g:message code="book.all" default="All"/>
+    </g:link>
+    <span>|</span>
+    <g:link controller="bookFavourite" action="index">
+        <g:message code="book.favourite" default="Favourites"/>
+    </g:link>
+    <span>|</span>
+    <sec:ifNotLoggedIn>
+        <a href="/oauth/authenticate/google">Login with Google</a> //<2>
+    </sec:ifNotLoggedIn>
+    <sec:ifLoggedIn>
+        <a href="/logout">Logout</a> //<3>
+    </sec:ifLoggedIn>
+</div>
+
+<g:if test="${flash.message}"> //<4>
+    <div class="message" style="display: block">${flash.message}</div>
+</g:if>
+----
+<1> Center our menu; link to list all books; link to list favourite books, login with google / logout
+<2> *Link to trigger our OAuth2 login through google; the link `/oauth/authenticate` is provided from the
+`spring-security-rest` plugin and ends with the provider we are using `/google` for the link `/oauth/authenticate/google`.
+This will redirect you to the normal Google login / account selection you are already familiar with.*
+<3> Link to our logout controller to invalidate spring context
+<4> Add a message block so we can view our login / logout messages

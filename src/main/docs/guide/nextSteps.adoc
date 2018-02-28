@@ -1,3 +1,4 @@
-To further your understanding read through the plugin documentation found https://budjb.github.io/grails-rabbitmq-native/3.x/latest/[here].
-Additionally feel free to read the RabbitMQ documentation https://www.rabbitmq.com/documentation.html[here], and take a
-look at there many examples available in different languages https://www.rabbitmq.com/getstarted.html[here].
+To further your understanding read through the plugin documentation found
+https://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/index.html[here].
+For additional documentation on Spring Security Core look
+https://docs.spring.io/spring-security/site/docs/current/reference/html/index.html[here].

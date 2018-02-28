@@ -12,20 +12,15 @@ appConfig:
   dependencies: Add Security Dependencies
   security: Generate Basic Spring Security
   oauthConfig: OAuth2 Configuration.
-#singleApp:
-#  title: Single Application - Internal MQ
-#  singleConfig: Configure our app
-#  consumerOne: Create a consumer - (Receiver of messages)
-#  producerOne: Create a producer - (Creator of messages)
-#  executeOne: See it in action!
-#multiApp:
-#  title: Multiple Applications - External MQ
-#  multiConfig: Configure our apps
-#  originalAppGrails: Adding to our app
-#  buildingAnalytics: Building our analytics app
-#  consumerTwo: Analytics consumer
-#  producerTwo: Book hit producer
-#  executeTwo: A symphony of messages
+buildingTheApp:
+  title: Building your app
+  domain: Your Domain
+  data: Your Data
+  services: Your Services
+  controllers: Your Controllers
+  views: Your Views
+runningTheCompleteApp:
+  title: Running your Completed App
 nextSteps:
   title: Next Steps
 helpWithGrails:

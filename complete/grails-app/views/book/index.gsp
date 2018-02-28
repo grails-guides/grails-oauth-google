@@ -5,7 +5,6 @@
 </head>
 <body>
 <div id="content" role="main">
-
     <section class="row colset-2-its">
         <g:each in="${bookList}" var="${book}">
             <g:link controller="book" id="${book.id}" action="show">

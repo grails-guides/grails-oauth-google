@@ -24,30 +24,4 @@ Navigate to http://localhost:8080 to see that the default application works.
 
 image::initialApp.png[]
 
-For the multi app part of this guide we will need to be able to run both apps simultaneously. To avoid a running port
-conflict update your `initial-analytics` app `application.yml` to include the following.
-
-[source,yml]
-.grails-app/conf/application.yml
-----
-include::complete-analytics/grails-app/conf/application.yml[indent=0, tag=serverPort]
-----
-
-Now in a seperate terminal to run alongside the `initial` app
-
-[source,bash]
-----
-$ cd initial-analytics/
-----
-
-NOTE: To run the completed app `$ cd complete-analytics/` instead of `initial-analytics`.
-
-To launch the application, run the following command.
-
-[source,bash]
-----
-$ ./gradlew bootRun
-----
-
-The analytics app should now be running at http://localhost:8090.
-Now that we have checked that both apps start, go ahead and shut them down with `Ctrl-C`.
+Now that we have checked the app start, go ahead and shut them down with `Ctrl-C`.

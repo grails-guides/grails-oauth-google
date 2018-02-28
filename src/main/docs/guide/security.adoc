@@ -1,0 +1,10 @@
+Second, we need to go ahead and generate our basic spring security constructs by executing the following command.
+
+[source,bash]
+----
+$ grails s2-quickstart demo User Role
+----
+
+After the above command has been executed you should now have a `Role`, `User`, and `UserRole` domain object located in
+your `grails-app/domain/demo` folder. In addition in our `grails-app/conf` we now also have an `application.groovy` that
+contains our security configuration.

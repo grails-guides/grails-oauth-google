@@ -1,0 +1,25 @@
+Next we need to create our services to return all our books and our favourite ones. First we leverage data services
+for our basic functionality.
+
+[source,groovy]
+.grails-app/services/demo/BookDataService.groovy
+----
+include::{sourceDir}/grails-app/services/demo/BookDataService.groovy[]
+----
+
+Now we will code a more advanced version of a data service where we maintain the data service `save` in the interface and
+implement a custom `findBookFavouriteBookId` finder in an abstract implementation of our interface.
+
+[source,groovy]
+.grails-app/services/demo/BookFavouriteDataService.groovy
+----
+include::{sourceDir}/grails-app/services/demo/BookFavouriteDataService.groovy[]
+----
+
+Finally we will write up two custom `findAlls` by leveraging Gorm where queries.
+
+[source,groovy]
+.grails-app/services/demo/BookGormService.groovy
+----
+include::{sourceDir}/grails-app/services/demo/BookGormService.groovy[]
+----

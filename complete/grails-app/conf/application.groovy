@@ -24,21 +24,23 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
+//tag::oauthConfig[]
 grails {
 	plugin {
 		springsecurity {
 			rest {
 				oauth {
-					frontendCallbackUrl = { String tokenValue -> "http://localhost:8080/successfullyLoggedIn/index#token=${tokenValue}" }
+					frontendCallbackUrl = { String tokenValue -> "http://localhost:8080/successfullyLoggedIn/index#token=${tokenValue}" } //<1>
 					google {
-						client = org.pac4j.oauth.client.Google2Client
-						key = ''
-						secret = ''
-						scope = org.pac4j.oauth.client.Google2Client.Google2Scope.EMAIL_AND_PROFILE
-						defaultRoles = []
+						client = org.pac4j.oauth.client.Google2Client //<2>
+						key = '' //<3>
+						secret = '' //<4>
+						scope = org.pac4j.oauth.client.Google2Client.Google2Scope.EMAIL_AND_PROFILE //<5>
+						defaultRoles = [] //<6>
 					}
 				}
 			}
 		}
 	}
 }
+//end::oauthConfig[]
