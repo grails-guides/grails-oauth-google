@@ -12,6 +12,7 @@ appConfig:
   dependencies: Add Security Dependencies
   security: Generate Basic Spring Security
   oauthConfig: OAuth2 Configuration.
+  logging: Enhanced Logging
 buildingTheApp:
   title: Building your app
   domain: Your Domain
