@@ -40,7 +40,7 @@ Now back on the Dashboard click `Create credentials`
 
 image::dashboardPostApi.png[]
 
-Step 1: Make sure `Google+ API is selected with the `Web server` options and `User data` then click
+Step 1: Make sure `Google+ API` is selected with the `Web server` options and `User data` then click
 `What credentials do I need?
 
 image::addCredentials1.png[]
