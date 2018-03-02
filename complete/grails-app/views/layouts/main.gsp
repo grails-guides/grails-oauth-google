@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="centered">
+    <div class="centered" style="margin: 10px auto;">
         <g:link controller="book" action="index">
             <g:message code="book.all" default="All"/>
         </g:link>
