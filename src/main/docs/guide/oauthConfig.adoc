@@ -1,10 +1,10 @@
-With our dependencies added and our basic security config now in place we can go ahead and add our OAuth2 configuration.
-In our `application.groovy` go ahead and add the following block.
+With our dependencies added, we need to configure security.
+Create a file `application.groovy` with the following content:
 
 [source,groovy]
 .grails-app/conf/application.groovy
 ----
-include::{sourceDir}/grails-app/conf/application.groovy[indent=0, tag=oauthConfig]
+include::{sourceDir}/grails-app/conf/application.groovy[indent=0]
 ----
 <1> Callback url, after selecting your google user this is where Google will attempt to return with your authentication token
 <2> Which pac4j client to use; in our case the Google client
@@ -12,9 +12,35 @@ include::{sourceDir}/grails-app/conf/application.groovy[indent=0, tag=oauthConfi
 <4> Open your `client_id.json` you downloaded while setting up Google and insert your `client_secret` as your secret
 <5> The scope can be from any value of the enum org.pac4j.oauth.client.Google2Client.Google2Scope
 <6> Specific roles that Google authentication is allowed to access
+<7> We are going to authenticate our users only against Google. Thus, we use only the anonymous authentication provider. Read more about https://grails-plugins.github.io/grails-spring-security-core/latest/#authenticationProviders[Authentication Providers] in Spring Security Core Plugin documentation.
 
 WARNING: While the scope can be from any value of the enum org.pac4j.oauth.client.Google2Client.Google2Scope, if you use
 the default OauthUserDetailsService, you need to use EMAIL_AND_PROFILE. That is because the default implementation uses
 the profile ID as the username, and that is only returned by Google if EMAIL_AND_PROFILE scope is used.
 
-Now that we have all our OAuth2 configuration in place lets go ahead and put the rest of our app together.
+NOTE: We are not persisting User information in the database. You may have noticed we don't have `User`, `Role`, `UserRole` domain classes in the project. Neither we setup configuration values such as `userLookUp.userDomainClass` etc.
+
+We need to override one bean exposed by Grails Spring Security Rest plugin.
+
+[source,groovy]
+.grails-app/conf/spring/resources.groovy
+----
+include::{sourceDir}/grails-app/conf/spring/resources.groovy[indent=0]
+----
+
+[source,groovy]
+.src/main/groovy/demo/CustomOauthUserDetailsService.groovy
+----
+include::{sourceDir}/src/main/groovy/demo/CustomOauthUserDetailsService.groovy[indent=0]
+----
+
+We override also the `login/auth` view. So that we no longer show a username/password form in that page.
+
+
+[source,groovy]
+.grails-app/views/login/auth.gsp
+----
+include::{sourceDir}/grails-app/views/login/auth.gsp[indent=0]
+----
+
+We don't include a button to SignIn with Google in that page because we have included that button in root layout _main.gsp_ file.

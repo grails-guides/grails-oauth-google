@@ -1,7 +1,3 @@
-// Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'demo.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'demo.UserRole'
-grails.plugin.springsecurity.authority.className = 'demo.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -16,6 +12,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
+	[pattern: '/dbconsole/**',      filters: 'none'],
 	[pattern: '/assets/**',      filters: 'none'],
 	[pattern: '/**/js/**',       filters: 'none'],
 	[pattern: '/**/css/**',      filters: 'none'],
@@ -24,9 +21,6 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
-grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider']
-
-//tag::oauthConfig[]
 grails {
 	plugin {
 		springsecurity {
@@ -45,4 +39,5 @@ grails {
 		}
 	}
 }
-//end::oauthConfig[]
+
+grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider'] // <6>

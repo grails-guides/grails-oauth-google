@@ -8,8 +8,7 @@ oauth2:
 appConfig:
   title: Setting up your app
   dependencies: Add Security Dependencies
-  security: Generate Basic Spring Security
-  oauthConfig: OAuth2 Configuration.
+  oauthConfig: Configure Security and OAuth2
   logging: Enhanced Logging
 buildingTheApp:
   title: Building your app

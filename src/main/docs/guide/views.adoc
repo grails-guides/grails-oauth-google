@@ -45,26 +45,7 @@ our favourite books, or login / logout. We add this between the navigation div a
 [source,html]
 .grails-app/views/layouts/main.gsp
 ----
-<div class="centered"> //<1>
-    <g:link controller="book" action="index">
-        <g:message code="book.all" default="All"/>
-    </g:link>
-    <span>|</span>
-    <g:link controller="bookFavourite" action="index">
-        <g:message code="book.favourite" default="Favourites"/>
-    </g:link>
-    <span>|</span>
-    <sec:ifNotLoggedIn>
-        <a href="/oauth/authenticate/google">Login with Google</a> //<2>
-    </sec:ifNotLoggedIn>
-    <sec:ifLoggedIn>
-        <a href="/logout">Logout</a> //<3>
-    </sec:ifLoggedIn>
-</div>
-
-<g:if test="${flash.message}"> //<4>
-    <div class="message" style="display: block">${flash.message}</div>
-</g:if>
+include::{sourceDir}/grails-app/views/layouts/main.gsp[indent=0, tag=menu]
 ----
 <1> Center our menu; link to list all books; link to list favourite books, login with google / logout
 <2> *Link to trigger our OAuth2 login through google; the link `/oauth/authenticate` is provided from the
