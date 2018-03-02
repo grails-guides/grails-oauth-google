@@ -49,7 +49,9 @@
             <a href="/oauth/authenticate/google">Login with Google</a>
         </sec:ifNotLoggedIn>
         <sec:ifLoggedIn>
-            <a href="/logout">Logout</a>
+            <g:form controller="logout" style="display: inline;">
+                <input type="submit" value="${g.message(code: "logout", default:"Logout")}"/>
+            </g:form>
         </sec:ifLoggedIn>
     </div>
 

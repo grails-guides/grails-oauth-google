@@ -31,12 +31,3 @@ include::{sourceDir}/grails-app/controllers/demo/SuccessfullyLoggedInController.
 ----
 <1> So we can access the user that logged in
 <2> Get user attributes for display message
-
-Lastly to facilitate a logout we need to add a `LogoutController`. This will set a flash message that we have logged out
-and will clear our spring security context for us, and return us to our home page.
-
-[source,groovy]
-.grails-app/controllers/demo/LogoutController.groovy
-----
-include::{sourceDir}/grails-app/controllers/demo/LogoutController.groovy[]
-----
