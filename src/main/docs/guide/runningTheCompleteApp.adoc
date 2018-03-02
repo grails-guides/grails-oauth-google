@@ -1,4 +1,4 @@
-As previously in the <<runningTheApp>> section go ahead and
+Run the app with Gradle `bootRun` task.
 
 [source,bash]
 ----
