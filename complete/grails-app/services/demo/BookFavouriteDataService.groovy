@@ -1,19 +1,13 @@
 package demo
 
+import grails.gorm.services.Query
 import grails.gorm.services.Service
 
-interface IBookFavouriteDataService {
-    BookFavourite save(Long bookId, String username)
-}
-
 @Service(BookFavourite)
-abstract class BookFavouriteDataService implements IBookFavouriteDataService {
+interface BookFavouriteDataService {
 
-    List<Long> findBookFavouriteBookId(String usernameParam) {
-        BookFavourite.where {
-            username == usernameParam
-        }.projections {
-            property('bookId')
-        }.list()
-    }
+    BookFavourite save(Long bookId, String username)
+
+    @Query("select $b.bookId from ${BookFavourite b} where $b.username = $username") // <1>
+    List<Long> findBookIdByUsername(String username)
 }

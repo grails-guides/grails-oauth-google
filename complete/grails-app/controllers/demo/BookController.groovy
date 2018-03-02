@@ -9,11 +9,10 @@ class BookController {
 
     static allowedMethods = [index: 'GET', show: 'GET']
 
-    BookGormService bookGormService
     BookDataService bookDataService
 
     def index() {
-        [bookList: bookGormService.findAll()]
+        [bookList: bookDataService.findAll()]
     }
 
     def show(Long id) {

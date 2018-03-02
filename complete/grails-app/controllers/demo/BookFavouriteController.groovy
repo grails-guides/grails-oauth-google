@@ -13,13 +13,13 @@ class BookFavouriteController {
 
     SpringSecurityService springSecurityService
     BookFavouriteDataService bookFavouriteDataService
-    BookGormService bookGormService
+    BookDataService bookDataService
 
     @Secured('permitAll')
     def index() {
         String username = loggedUsername()
-        List<Long> bookIds = bookFavouriteDataService.findBookFavouriteBookId(username) //<1>
-        List<BookImage> bookList = bookGormService.findAllByIds(bookIds) //<2>
+        List<Long> bookIds = bookFavouriteDataService.findBookIdByUsername(username) //<1>
+        List<BookImage> bookList = bookDataService.findAllByIds(bookIds) //<2>
         render view: '/book/index', model: [bookList: bookList]
     }
 
