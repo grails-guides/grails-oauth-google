@@ -2,8 +2,6 @@ gettingStarted:
   title: Getting Started
   requirements: What you will need
   howto: How to complete the guide
-runningTheApp:
-  title: Running the Application
 oauth2:
   title: OAuth2 Authentication
   configureGoogleOAuth: Setup and Configure Google OAuth2
