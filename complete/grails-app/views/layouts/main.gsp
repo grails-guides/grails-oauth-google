@@ -46,7 +46,7 @@
         </g:link>
         <span>|</span>
         <sec:ifNotLoggedIn>
-            <a href="/oauth/authenticate/google">Login with Google</a>
+            <a href="/oauth/authenticate/google">${g.message(code: "login.google", default:"Login with Google")}</a>
         </sec:ifNotLoggedIn>
         <sec:ifLoggedIn>
             <g:form controller="logout" style="display: inline;">
