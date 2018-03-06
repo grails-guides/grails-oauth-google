@@ -45,11 +45,42 @@ our favourite books, or login / logout. We add this between the navigation div a
 [source,html]
 .grails-app/views/layouts/main.gsp
 ----
-include::{sourceDir}/grails-app/views/layouts/main.gsp[indent=0, tag=menu]
+<div class="centered" style="margin: 10px auto;"> //<1>
+        <g:link controller="book" action="index">
+            <g:message code="book.all" default="All"/>
+        </g:link>
+        <span>|</span>
+        <g:link controller="bookFavourite" action="index">
+            <g:message code="book.favourite" default="Favourites"/>
+        </g:link>
+        <span>|</span>
+        <sec:ifNotLoggedIn>
+            <g:render template="/login/loginWithGoogle"/> //<2>
+        </sec:ifNotLoggedIn>
+        <sec:ifLoggedIn>
+            <g:form controller="logout" style="display: inline;">
+                <input type="submit" value="${g.message(code: "logout", default:"Logout")}"/> //<3>
+            </g:form>
+        </sec:ifLoggedIn>
+    </div>
+
+    <g:if test="${flash.message}">
+        <div class="message" style="display: block">${flash.message}</div> //<4>
+    </g:if>
 ----
 <1> Center our menu; link to list all books; link to list favourite books, login with google / logout
-<2> *Link to trigger our OAuth2 login through google; the link `/oauth/authenticate` is provided from the
-`spring-security-rest` plugin and ends with the provider we are using `/google` for the link `/oauth/authenticate/google`.
-This will redirect you to the normal Google login / account selection you are already familiar with.*
+<2> Include template with login link
 <3> Link to our logout controller to invalidate spring context
 <4> Add a message block so we can view our login / logout messages
+
+We create a template to contain our link to trigger our OAuth login through Google; the link `/oauth/authenticate`
+is provided from the `spring-security-rest` plugin and ends with the provider we are using `/google` for the
+link `/oauth/authenticate/google`. This will redirect you to the normal Google login / account selection you are already familiar with.
+
+[source,html]
+.grails-app/views/login/_loginWithGoogle.gsp
+----
+include::{sourceDir}/grails-app/views/login/_loginWithGoogle.gsp[]
+----
+
+NOTE: `btn_google_signin_dark_normal_web@2x.png` is already provided for you in assets

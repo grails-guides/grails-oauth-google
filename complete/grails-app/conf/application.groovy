@@ -28,18 +28,18 @@ grails {
 				token {
 					storage {
 						jwt {
-							secret = 'foobar123'*4
+							secret = 'foobar123'*4 //<1>
 						}
 					}
 				}
 				oauth {
-					frontendCallbackUrl = { String tokenValue -> "http://localhost:8080/successfullyLoggedIn/index#token=${tokenValue}" } //<1>
+					frontendCallbackUrl = { String tokenValue -> "http://localhost:8080/successfullyLoggedIn/index#token=${tokenValue}" } //<2>
 					google {
-						client = org.pac4j.oauth.client.Google2Client //<2>
-						key = '731659565932-kthaahfrddtfdggqj6s1tn4bmp5rvhub.apps.googleusercontent.com' //<3>
-						secret = '729PGWdY-s6pgPcJlbP6SUoL' //<4>
-						scope = org.pac4j.oauth.client.Google2Client.Google2Scope.EMAIL_AND_PROFILE //<5>
-						defaultRoles = [] //<6>
+						client = org.pac4j.oauth.client.Google2Client //<3>
+						key = '731659565932-kthaahfrddtfdggqj6s1tn4bmp5rvhub.apps.googleusercontent.com' //<4>
+						secret = '729PGWdY-s6pgPcJlbP6SUoL' //<5>
+						scope = org.pac4j.oauth.client.Google2Client.Google2Scope.EMAIL_AND_PROFILE //<6>
+						defaultRoles = [] //<7>
 					}
 				}
 			}
@@ -47,4 +47,4 @@ grails {
 	}
 }
 
-grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider'] // <6>
+grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider'] // <8>
