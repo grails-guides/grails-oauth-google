@@ -5,5 +5,3 @@ First thing we need to do is add the `spring-security-core` and `spring-security
 ----
 include::{sourceDir}/build.gradle[indent=0, tag=secDependency]
 ----
-<1> Exclude `spring-security-core` transitive dependency from `spring-security-rest`.
-We are defining the latest version of `spring-security-core` plugin explicitely.

@@ -25,6 +25,13 @@ grails {
 	plugin {
 		springsecurity {
 			rest {
+				token {
+					storage {
+						jwt {
+							secret = 'foobar123'*4
+						}
+					}
+				}
 				oauth {
 					frontendCallbackUrl = { String tokenValue -> "http://localhost:8080/successfullyLoggedIn/index#token=${tokenValue}" } //<1>
 					google {
