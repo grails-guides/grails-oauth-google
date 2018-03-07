@@ -12,30 +12,7 @@ Next we will create a `show.gsp` also in `views/books` so that when we select a 
 [source,html]
 .grails-app/views/book/show.gsp
 ----
-<html>
-<head>
-    <title>${bookInstance?.title}</title>
-    <meta name="layout" content="main" />
-</head>
-<body>
-<div id="content" role="main">
-    <section class="row colset-2-its">
-        <g:if test="${bookInstance}">
-            <h1><a href="${bookInstance.href}">${bookInstance.title}</a></h1>
-            <sec:ifLoggedIn>  //<1>
-                <g:form controller="bookFavourite" action="favourite">
-                    <g:hiddenField name="bookId" value="${bookInstance.id}"/>
-                    <input type="submit" class="btn btn-default" value="${g.message(code: 'book.favourite', default: 'Favourite')}"/>
-                </g:form>
-            </sec:ifLoggedIn>
-            <p>${bookInstance.about}</p>
-            <h2><g:message code="book.author" args="[bookInstance.author]" default="By {0}"/></h2>
-            <asset:image src="${bookInstance.image}" width="200" />
-        </g:if>
-    </section>
-</div>
-</body>
-</html>
+include::{sourceDir}/grails-app/views/book/show.gsp[indent=0]
 ----
 <1> Wrap our favourite button in a logged in check as we should only be able to favourite a book when we are logged in
 
@@ -45,28 +22,7 @@ our favourite books, or login / logout. We add this between the navigation div a
 [source,html]
 .grails-app/views/layouts/main.gsp
 ----
-<div class="centered" style="margin: 10px auto;"> //<1>
-        <g:link controller="book" action="index">
-            <g:message code="book.all" default="All"/>
-        </g:link>
-        <span>|</span>
-        <g:link controller="bookFavourite" action="index">
-            <g:message code="book.favourite" default="Favourites"/>
-        </g:link>
-        <span>|</span>
-        <sec:ifNotLoggedIn>
-            <g:render template="/login/loginWithGoogle"/> //<2>
-        </sec:ifNotLoggedIn>
-        <sec:ifLoggedIn>
-            <g:form controller="logout" style="display: inline;">
-                <input type="submit" value="${g.message(code: "logout", default:"Logout")}"/> //<3>
-            </g:form>
-        </sec:ifLoggedIn>
-    </div>
-
-    <g:if test="${flash.message}">
-        <div class="message" style="display: block">${flash.message}</div> //<4>
-    </g:if>
+include::{sourceDir}/grails-app/views/layouts/main.gsp[indent=0, tag=menu]
 ----
 <1> Center our menu; link to list all books; link to list favourite books, login with google / logout
 <2> Include template with login link
