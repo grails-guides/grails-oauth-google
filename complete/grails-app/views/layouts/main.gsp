@@ -36,7 +36,7 @@
         </div>
     </div>
 <!-- tag::menu[] -->
-    <div class="centered" style="margin: 10px auto;"> <!-- <1> -->
+    <div class="centered" style="margin: 10px auto;">
         <g:link controller="book" action="index">
             <g:message code="book.all" default="All"/>
         </g:link>
@@ -46,17 +46,17 @@
         </g:link>
         <span>|</span>
         <sec:ifNotLoggedIn>
-            <g:render template="/login/loginWithGoogle"/><!-- <2> -->
+            <g:render template="/login/loginWithGoogle"/>
         </sec:ifNotLoggedIn>
         <sec:ifLoggedIn>
             <g:form controller="logout" style="display: inline;">
-                <input type="submit" value="${g.message(code: "logout", default:"Logout")}"/><!-- <3> -->
+                <input type="submit" value="${g.message(code: "logout", default:"Logout")}"/>
             </g:form>
         </sec:ifLoggedIn>
     </div>
 
     <g:if test="${flash.message}">
-        <div class="message" style="display: block">${flash.message}</div><!-- <4> -->
+        <div class="message" style="display: block">${flash.message}</div>
     </g:if>
 <!-- end::menu[] -->
     <g:layoutBody/>

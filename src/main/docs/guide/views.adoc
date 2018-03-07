@@ -14,7 +14,7 @@ Next we will create a `show.gsp` also in `views/books` so that when we select a 
 ----
 include::{sourceDir}/grails-app/views/book/show.gsp[indent=0]
 ----
-<1> Wrap our favourite button in a logged in check as we should only be able to favourite a book when we are logged in
+In the above code we wrap our favourite button in a logged in check as we should only be able to favourite a book when we are logged in
 
 Lastly we tie it all together in our layout file by adding a simple menu that allows us to select either all our books,
 our favourite books, or login / logout. We add this between the navigation div and the `<g:layoutBody/>`.
@@ -24,10 +24,12 @@ our favourite books, or login / logout. We add this between the navigation div a
 ----
 include::{sourceDir}/grails-app/views/layouts/main.gsp[indent=0, tag=menu]
 ----
-<1> Center our menu; link to list all books; link to list favourite books, login with google / logout
-<2> Include template with login link
-<3> Link to our logout controller to invalidate spring context
-<4> Add a message block so we can view our login / logout messages
+In the above code we:
+
+ * Center our menu; link to list all books; link to list favourite books, login with google / logout
+ * Include template with login link
+ * Link to our logout controller to invalidate spring context
+ * Add a message block so we can view our login / logout messages
 
 We create a template to contain our link to trigger our OAuth login through Google; the link `/oauth/authenticate`
 is provided from the `spring-security-rest` plugin and ends with the provider we are using `/google` for the
