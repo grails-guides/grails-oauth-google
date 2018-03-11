@@ -1,3 +1,6 @@
-// Place your Spring DSL code here
+import demo.JwtCookieTokenReader
 beans = {
+    tokenReader(JwtCookieTokenReader) {
+        cookieName = 'foo'
+    }
 }

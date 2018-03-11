@@ -1,0 +1,17 @@
+We override the default token reader to read the JWT token from the cookies.
+
+Implement a `TokenReader`
+
+[source,groovy]
+.src/main/groovy/demo/JwtCookieTokenReader.groovy
+----
+include::{sourceDir}/src/main/groovy/demo/JwtCookieTokenReader.groovy[indent=0]
+----
+
+Register it in `grails-app/conf/spring/resources.groovy` as `tokenReader`.
+
+[source,groovy]
+.grails-app/conf/spring/resources.groovy
+----
+include::{sourceDir}/grails-app/conf/spring/resources.groovy[indent=0]
+----

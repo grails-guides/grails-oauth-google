@@ -28,7 +28,7 @@ In the above code we:
 
  * Center our menu; link to list all books; link to list favourite books, login with google / logout
  * Include template with login link
- * Link to our logout controller to invalidate spring context
+ * Include template with logout link
  * Add a message block so we can view our login / logout messages
 
 We create a template to contain our link to trigger our OAuth login through Google; the link `/oauth/authenticate`
@@ -36,9 +36,17 @@ is provided from the `spring-security-rest` plugin and ends with the provider we
 link `/oauth/authenticate/google`. This will redirect you to the normal Google login / account selection you are already familiar with.
 
 [source,html]
-.grails-app/views/login/_loginWithGoogle.gsp
+.grails-app/views/auth/_loginWithGoogle.gsp
 ----
-include::{sourceDir}/grails-app/views/login/_loginWithGoogle.gsp[]
+include::{sourceDir}/grails-app/views/auth/_loginWithGoogle.gsp[]
+----
+
+We create a template for the logout link too.
+
+[source,html]
+.grails-app/views/auth/_logoutButton.gsp
+----
+include::{sourceDir}/grails-app/views/auth/_logoutButton.gsp[]
 ----
 
 NOTE: `btn_google_signin_dark_normal_web@2x.png` is already provided for you in assets
