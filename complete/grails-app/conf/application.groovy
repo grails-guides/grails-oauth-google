@@ -46,6 +46,7 @@ grails {
 //end::grailsPluginSpringSecurityRest[]
 
 //tag::filterChain[]
+String ANONYMOUS_FILTERS = 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor' // <1>
 grails.plugin.springsecurity.filterChain.chainMap = [
 		[pattern: '/dbconsole/**',      filters: 'none'],
 		[pattern: '/assets/**',      filters: 'none'],
@@ -53,12 +54,12 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 		[pattern: '/**/css/**',      filters: 'none'],
 		[pattern: '/**/images/**',   filters: 'none'],
 		[pattern: '/**/favicon.ico', filters: 'none'],
-		[pattern: '/', filters: 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor'], // <1>
-		[pattern: '/book/show/*', filters: 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor'],  // <1>
-		[pattern: '/bookFavourite/index', filters: 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor'], // <1>
-		[pattern: '/auth/success', filters: 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor'], // <1>
-		[pattern: '/oauth/authenticate/google', filters: 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor'], // <1>
-		[pattern: '/oauth/callback/google', filters: 'anonymousAuthenticationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor'], // <1>
+		[pattern: '/', filters: ANONYMOUS_FILTERS], // <1>
+		[pattern: '/book/show/*', filters: ANONYMOUS_FILTERS],  // <1>
+		[pattern: '/bookFavourite/index', filters: ANONYMOUS_FILTERS], // <1>
+		[pattern: '/auth/success', filters: ANONYMOUS_FILTERS], // <1>
+		[pattern: '/oauth/authenticate/google', filters: ANONYMOUS_FILTERS], // <1>
+		[pattern: '/oauth/callback/google', filters: ANONYMOUS_FILTERS], // <1>
 		[pattern: '/**', filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'],  // <1>
 ]
 //end::filterChain[]
