@@ -21,7 +21,7 @@ class JwtCookieTokenReader implements TokenReader {
 
         log.debug "Looking for jwt token in a cookie named {}", cookieName
         String tokenValue = null
-        Cookie cookie = request.getCookies()?.find { Cookie cookie -> cookie.name.compareToIgnoreCase(cookieName) == 0 }
+        Cookie cookie = request.getCookies()?.find { Cookie cookie -> cookie.name.equalsIgnoreCase(cookieName) }
 
         if ( cookie ) {
             tokenValue = cookie.value
