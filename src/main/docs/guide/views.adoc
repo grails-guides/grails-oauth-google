@@ -41,12 +41,4 @@ link `/oauth/authenticate/google`. This will redirect you to the normal Google l
 include::{sourceDir}/grails-app/views/auth/_loginWithGoogle.gsp[]
 ----
 
-We create a template for the logout link too.
-
-[source,html]
-.grails-app/views/auth/_logoutButton.gsp
-----
-include::{sourceDir}/grails-app/views/auth/_logoutButton.gsp[]
-----
-
 NOTE: `btn_google_signin_dark_normal_web@2x.png` is already provided for you in assets

@@ -10,6 +10,7 @@ appConfig:
   dependencies: Add Security Dependencies
   tokenReader: Custom Token Reader
   oauthConfig: Configure Security
+  logout: Logout Handlers
   authController: JWT Cookie
   logging: Enhanced Logging
 buildingTheApp:

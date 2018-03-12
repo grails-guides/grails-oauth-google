@@ -49,7 +49,9 @@
             <g:render template="/auth/loginWithGoogle"/>
         </sec:ifNotLoggedIn>
         <sec:ifLoggedIn>
-            <g:render template="/auth/logoutButton"/>
+            <g:form controller="logout" style="display: inline;">
+                <input type="submit" value="${g.message(code: "logout", default:"Logout")}"/>
+            </g:form>
         </sec:ifLoggedIn>
     </div>
 

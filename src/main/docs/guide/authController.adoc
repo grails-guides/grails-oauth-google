@@ -26,8 +26,3 @@ client side to ensure cookies are correctly set or deleted.
 include::{sourceDir}/grails-app/views/auth/success.gsp[indent=0]
 ----
 
-[source,groovy]
-.grails-app/views/auth/logout.gsp
-----
-include::{sourceDir}/grails-app/views/auth/logout.gsp[indent=0]
-----

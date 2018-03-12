@@ -62,3 +62,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 		[pattern: '/**', filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'],  // <1>
 ]
 //end::filterChain[]
+
+//tag::logoutHandlers[]
+grails.plugin.springsecurity.logout.handlerNames = ['rememberMeServices', 'securityContextLogoutHandler', 'cookieClearingLogoutHandler']
+//end::logoutHandlers[]
