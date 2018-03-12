@@ -13,5 +13,11 @@ Register it in `grails-app/conf/spring/resources.groovy` as `tokenReader`.
 [source,groovy]
 .grails-app/conf/spring/resources.groovy
 ----
-include::{sourceDir}/grails-app/conf/spring/resources.groovy[indent=0]
+include::{sourceDir}/grails-app/conf/spring/resources.groovy[tag=tokenReaderImport]
+beans {
+include::{sourceDir}/grails-app/conf/spring/resources.groovy[tag=tokenReader]
+...
+..
+.
+}
 ----
