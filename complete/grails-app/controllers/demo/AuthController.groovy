@@ -32,19 +32,6 @@ class AuthController implements GrailsConfigurationAware {
         [grailsServerUrl: grailsServerUrl]
     }
 
-    @Secured('isAuthenticated()')
-    def logout() {
-        Cookie cookie = request.getCookies()?.find { Cookie cookie ->
-            cookie.name.compareToIgnoreCase(cookieName()) == 0
-        }
-        if ( cookie ) {
-            Cookie rspCookie = jwtCookie(cookie.value)
-            rspCookie.maxAge = 0 // <2>
-            response.addCookie(rspCookie)
-        }
-        [grailsServerUrl: grailsServerUrl]
-    }
-
     protected Cookie jwtCookie(String tokenValue) {
         Cookie jwtCookie = new Cookie( cookieName(), tokenValue )
         jwtCookie.maxAge = jwtExpiration // <5>
