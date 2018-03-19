@@ -1,4 +1,1 @@
-To further your understanding read through the plugin documentation found
-https://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/index.html[here].
-For additional documentation on Spring Security Core look
-https://docs.spring.io/spring-security/site/docs/current/reference/html/index.html[here].
+To further your understanding read through https://alvarosanchez.github.io/grails-spring-security-rest/latest/docs/index.html[Grails Spring Security Rest] and https://grails-plugins.github.io/grails-spring-security-core/[Spring Security Core] documentation.

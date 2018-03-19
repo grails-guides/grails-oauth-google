@@ -1,6 +1,6 @@
-Create `AuthController.groovy`. When the user logs in successfully with Google, `AuthController.index` is invoked.
+Create `AuthController.groovy`. When the user logs in successfully with Google, `AuthController.success` is invoked.
 
-NOTE: The path to `AuthController.index` is used in `frontendCallbackUrl` in `application.groovy`.
+NOTE: The path to `AuthController.success` is used in `frontendCallbackUrl` in `application.groovy`.
 
 [source,groovy]
 .grails-app/controllers/demo/AuthController.groovy
@@ -17,8 +17,8 @@ include::{sourceDir}/grails-app/controllers/demo/AuthController.groovy[indent=0]
 
 NOTE: Due to the stateless nature of the security solution of this application. To log out a user involves the deletion the cookie containing his JWT token.
 
-The GSP of both actions perform simple redirect to the home page. We do the redirect in the
-client side to ensure cookies are correctly set or deleted.
+The GSP of `success` action performs simple redirect to the home page. We do the redirect in the
+client side to ensure the cookie is correctly set.
 
 [source,groovy]
 .grails-app/views/auth/success.gsp
