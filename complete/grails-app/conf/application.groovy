@@ -32,8 +32,8 @@ grails {
 					frontendCallbackUrl = { String tokenValue -> "http://localhost:8080/auth/success?token=${tokenValue}" } //<4>
 					google {
 						client = org.pac4j.oauth.client.Google2Client //<5>
-						key = '731659565932-kthaahfrddtfdggqj6s1tn4bmp5rvhub.apps.googleusercontent.com' //<6>
-						secret = '729PGWdY-s6pgPcJlbP6SUoL' //<7>
+						key = '${GOOGLE_KEY}' //<6>
+						secret = '${GOOGLE_SECRET}' //<7>
 						scope = org.pac4j.oauth.client.Google2Client.Google2Scope.EMAIL_AND_PROFILE //<8>
 						defaultRoles = [] //<9>
 					}
