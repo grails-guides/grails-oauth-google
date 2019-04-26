@@ -9,7 +9,7 @@ include::{sourceDir}/grails-app/controllers/demo/AuthController.groovy[indent=0]
 ----
 
 <1> Responds a Cookie with the JWT token as value
-<2> Responding a cookie with the same name and `maxAge` equals 0 deletes the cookie. Thus, it logs out the user.
+<5> Responding a cookie with the same name and `maxAge` equals 0 deletes the cookie. Thus, it logs out the user.
 <3> Prevents any Javascript executed in your site ( even your own javascript ) to do `document.cookies` and access the cookies
 <4> Cookie won't leave if you do http:// instead of https://. You should use https in production.
 <5> Set the cookie expiration to match JWT expiration
