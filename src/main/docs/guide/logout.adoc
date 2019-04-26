@@ -7,7 +7,7 @@ Modify `grails-app/conf/spring/resources.groovy`:
 .grails-app/conf/spring/resources.groovy
 ----
 include::{sourceDir}/grails-app/conf/spring/resources.groovy[tag=cookieClearingImport]
-beans {
+beans = {
 ...
 ..
 .
