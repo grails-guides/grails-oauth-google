@@ -13,6 +13,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 //end::staticRules[]
 //tag::grailsPluginSpringSecurityRest[]
+import grails.util.Holders
 grails {
 	plugin {
 		springsecurity {
@@ -29,7 +30,7 @@ grails {
 					}
 				}
 				oauth {
-					frontendCallbackUrl = { String tokenValue -> "http://localhost:8080/auth/success?token=${tokenValue}" } //<4>
+					frontendCallbackUrl = { String tokenValue -> "${Holders.grailsApplication.config.grails.serverURL}/auth/success?token=${tokenValue}" } //<4>
 					google {
 						client = org.pac4j.oauth.client.Google2Client //<5>
 						key = '${GOOGLE_KEY}' //<6>
