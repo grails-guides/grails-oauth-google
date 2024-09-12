@@ -62,5 +62,5 @@ That will bring you back to the credentials home page.
 
 image::credentialsHome.png[]
 
-This is all the setup that needs to be done in Google. Now we will take a look at setting up our applicatin and the
+This is all the setup that needs to be done in Google. Now we will take a look at setting up our application and the
 credentials we downloaded to connect our app.
