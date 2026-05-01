@@ -1,7 +1,0 @@
-First thing we need to do is add the `spring-security-core` and `spring-security-rest` plugins to our `build.gradle` file.
-
-[source,groovy]
-.build.gradle
-----
-include::{sourceDir}/build.gradle[indent=0, tag=secDependency]
-----
